@@ -16,7 +16,6 @@ public class UnityEventOnTrigger : MonoBehaviour
         {
             Debug.Log($"{gameObject} is missing a collider");
         }
-        
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -27,7 +26,7 @@ public class UnityEventOnTrigger : MonoBehaviour
             Debug.Log("Unity Event Trigger (enter) activated on " + gameObject);
         }
     }
-    
+
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag(tagToActivate))
@@ -39,14 +38,13 @@ public class UnityEventOnTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(gameObject + " IS COLLIDING WITH: " + other.tag);
         if (other.CompareTag(tagToActivate))
         {
             onTriggerEnter.Invoke();
             Debug.Log("Unity Event Trigger (enter) activated on " + gameObject);
         }
     }
-    
+
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag(tagToActivate))

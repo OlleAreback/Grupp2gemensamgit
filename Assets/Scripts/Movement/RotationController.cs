@@ -10,22 +10,22 @@ public class RotationController : MonoBehaviour
     [SerializeField] private float verticalSpeed = -0.2f;
     [SerializeField] private Transform rotateHorizontally;
     [SerializeField] private Transform rotateVertically;
-    
+
     private Vector2 lookInput;
 
     // Locks cursor on enable and unlocks on disable
     // Suggestion: Disable this component when entering a menu and enable when entering gameplay
-    private void OnEnable()
+    public void OnEnable()
     {
         Cursor.lockState = CursorLockMode.Locked;
     }
-    
-    private void OnDisable()
+
+    public void OnDisable()
     {
         Cursor.lockState = CursorLockMode.None;
     }
 
-    void Update()
+    private void Update()
     {
         // Only rotate horizontally if a transform has been assigned
         if (rotateHorizontally != null)
@@ -38,7 +38,7 @@ public class RotationController : MonoBehaviour
             rotateVertically.Rotate(Vector3.right, lookInput.y * 180 * verticalSpeed * Time.deltaTime);
         }
     }
-    
+
     // Handle Look-input
     // This method can be triggered through the UnityEvent in PlayerInput
     public void OnLook(InputAction.CallbackContext context)
