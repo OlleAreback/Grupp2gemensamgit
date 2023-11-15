@@ -5,29 +5,20 @@ using UnityEngine.InputSystem;
 // Use with the components CharacterController and PlayerInput.
 // PlayerInput should be set to Behavior: Invoke Unity Events
 public class GravityMovementController : MonoBehaviour
-{
+{ 
     [SerializeField] private float speed = 2f;
     [SerializeField] private CharacterController controller;
 
     private Vector2 moveInput;
     private Vector3 velocity;
     private bool wasGrounded;
-
-    Animator characterAnimator;
-
-    void Start()
-    {
-        characterAnimator = GetComponent<Animator>();
-    }
-
-
-
+    
     void Update()
     {
         ApplyGravity();
-
+        
         velocity = transform.TransformDirection(TranslateInputToVelocity(moveInput));
-
+        
         controller.Move(velocity * Time.deltaTime);
 
         bool isGrounded = controller.isGrounded;
@@ -44,18 +35,8 @@ public class GravityMovementController : MonoBehaviour
         }
 
         wasGrounded = isGrounded;
-
-        if (controller.velocity.magnitude>0)
-        {
-            characterAnimator.SetFloat("Speed", 3);
-            }
-
-        else
-        {
-            characterAnimator.SetFloat("Speed", 0);
-            }
     }
-
+    
     private void ApplyGravity()
     {
         // Applies a set gravity for when player is grounded

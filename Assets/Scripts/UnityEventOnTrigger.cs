@@ -39,6 +39,7 @@ public class UnityEventOnTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log(gameObject + " IS COLLIDING WITH: " + other.tag);
         if (other.CompareTag(tagToActivate))
         {
             onTriggerEnter.Invoke();

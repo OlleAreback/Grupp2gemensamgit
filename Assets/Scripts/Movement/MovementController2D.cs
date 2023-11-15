@@ -71,7 +71,6 @@ public class MovementController2D : MonoBehaviour
     // This method can be triggered through the UnityEvent in PlayerInput
     public void OnMove(InputAction.CallbackContext context)
     {
-      
         moveInput = context.ReadValue<Vector2>().normalized;
     }
 

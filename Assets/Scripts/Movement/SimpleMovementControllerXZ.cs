@@ -18,7 +18,7 @@ public class SimpleMovementControllerXZ : MonoBehaviour
     {
         rigidbody.velocity = transform.TransformDirection(new Vector3(move.x * speed, 0, move.y * speed));
 
-        animator.SetBool("Moving", move.magnitude > 0);
+        //animator.SetBool("Moving", move.magnitude > 0);
     }
 
     // This method can be used through the UnityEvent in PlayerInput
